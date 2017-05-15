@@ -1,0 +1,12 @@
+<ion-view view-title="{{views.homePage}}">
+<ion-content>
+    <div class="empty padding" ng-if="main_categories.length <= 0">{{empty_shop}}</div>
+    <ion-list class="categories-list">
+        <ion-item ng-repeat="categorie in main_categories" ui-sref="app.shop({categorie:categorie.name})" ng-style="{'background-image':'url({{categorie.image}})'}">
+            <div class="categorie-name">
+                <h2>{{ categorie.name }}</h2>
+            </div>
+        </ion-item>
+    </ion-list>
+</ion-content>
+</ion-view>

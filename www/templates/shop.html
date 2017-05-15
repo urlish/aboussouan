@@ -1,0 +1,55 @@
+<ion-view view-title="{{categorie}}">
+<ion-content>
+    <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="refreshProducts()">
+    </ion-refresher>
+
+    <div class="empty padding" ng-if="products.length <= 0">{{empty}}</div>
+    <div class="products-list" ng-if="products.length > 0">
+        <div class="row" ng-repeat="product in products" ng-if="$index % 2 === 0">
+            <div class="product col col-50" ng-init="changePrice(products[$index])">
+                <div class="list card" ui-sref="app.product({id:products[$index].id})">
+                    <div class="sale" ng-if="products[$index].on_sale == true">
+                        <div class="sale-badge">
+                            {{sale_text}}
+                        </div>
+                    </div>
+                    <div class="item item-image" ng-style="{'background-image':'url({{products[$index].images[0].src}})'}">
+                    </div>
+                    <div class="item item-text">
+                        <h2 class="title">{{products[$index].title}}</h2>
+                        <div class="price-wrapper">
+                            <span class="price"><span data-ng-bind-html="currency"></span>{{products[$index].price}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product col col-50" ng-if="$index+1 < products.length" ng-init="changePrice(products[$index+1])">
+                <div class="list card" ui-sref="app.product({id:products[$index+1].id})">
+                    <div class="sale" ng-if="products[$index+1].on_sale == true">
+                        <div class="sale-badge">
+                            {{sale_text}}
+                        </div>
+                    </div>
+                    <div class="item item-image" ng-style="{'background-image':'url({{products[$index+1].images[0].src}})'}">
+                    </div>
+                    <div class="item item-text">
+                        <h2 class="title">{{products[$index+1].title}}</h2>
+                        <div class="price-wrapper">
+                            <span class="price"><span data-ng-bind-html="currency"></span>{{products[$index+1].price}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <ion-infinite-scroll
+    ng-if="hasMoreProducts"
+    immediate-check="false"
+    on-infinite="loadMorProducts()"
+    distance="1%">
+  </ion-infinite-scroll>
+</ion-content>
+</ion-view>
