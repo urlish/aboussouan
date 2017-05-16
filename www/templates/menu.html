@@ -1,44 +1,22 @@
-<ion-side-menus enable-menu-with-back-views="false">
-  <ion-side-menu-content>
-    <ion-nav-bar class="bar-stable">
-      <ion-nav-back-button>
-      </ion-nav-back-button>
+<ion-side-menus>
 
-      <ion-nav-buttons side="left">
-        <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
-      </ion-nav-buttons>
-      <ion-nav-buttons side="right">
-        <button class="button button-icon button-clear ion-bag" ng-click="openCart()"><span class="cart-number" ng-class="isOverflow(cartLength)">{{cartLength}}</span></button>
-      </ion-nav-buttons>
-      
-    </ion-nav-bar>
-    <ion-nav-view name="menuContent"></ion-nav-view>
-  </ion-side-menu-content>
+    <ion-pane ion-side-menu-content>
+        <ion-nav-bar class="bar-stable nav-title-slide-ios7">
+            <ion-nav-back-button class="button-clear"><i class="icon ion-ios-arrow-back"></i></i> Back</ion-nav-back-button>
+        </ion-nav-bar>
+        <ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
+    </ion-pane>
 
-  <ion-side-menu side="left">   
-     
-      <ion-content has-header="true">
-          <ion-list>
-            <ion-item menu-close ui-sref="app.home" class="home">
-              Home
-              <i class="icon ion-android-home"></i>
-            </ion-item>
-            <div ng-repeat="menuItem in menu_categories">
-              <div class="without-children" ng-if="menuItem.children.length <= 0">
-                <ion-item menu-close ui-sref="app.shop({categorie:menuItem.name})">{{menuItem.name}}</ion-item>
-              </div>
-              <div class="with-children" ng-if="menuItem.children.length > 0">
-                <ion-item ng-click="toggleMenu(menuItem)" ng-class="{active:isShown(menuItem)}">
-                  {{menuItem.name}}
-                  <i class="icon ion-ios-arrow-down"></i>
+    <ion-side-menu side="left">
+        <header class="bar bar-header bar-stable">
+            <h1 class="title">Menu</h1>
+        </header>
+        <ion-content class="has-header">
+            <ion-list>
+                <ion-item ng-repeat="item in items" nav-clear menu-close href="{{item.url}}">
+                    <i class="icon {{item.icon}}"></i> {{item.title}}
                 </ion-item>
-                <ion-item ng-show="isShown(menuItem)" class="item-accordion" ng-repeat="childItem in menuItem.children" menu-close ui-sref="app.shop({parent:menuItem.name,categorie:childItem.name})">
-                  {{childItem.name}}
-                </ion-item>
-              </div>
-            </div>  
-          </ion-list> 
-      </ion-content>
-  </ion-side-menu> 
-
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
 </ion-side-menus>
