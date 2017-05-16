@@ -1,28 +1,34 @@
-var config = {
-    title: 'Restaurant Aboussouan', // Title displayed in the app
-    link: 'http://www.restaurantaboussouan.com', // Woocommerce homepage URL
-    checkout: 'http://www.restaurantaboussouan.com/commande/', // Woocommerce checkout URL
-    timeout: 20000, // Timeout of api calls in milliseconds
-    api: {
-        link: 'http://www.restaurantaboussouan.com/'+'wc-api/v3/', // API link
-        key: 'ck_7445282e9cbf6c4c0877b16d3ad5dcebff570db6', // API customer key 
-        secret: 'cs_d324c7c769ffc5417cf2376df70776c2bb1720ba', // API customer secret
-        signature: 'HMAC-SHA1', // API signature algorithm
-        version: '1.0' // OAuth Version
-    },
-    messages: { // HTML Allowed
-        sale_text: 'Vente', // Text on the sale badge
-        added_cart: 'Ajouté avec succès à votre panier!', // Message to show when a product is added to cart
-        exists_cart: 'Le produit existe déjà dans votre panier!', // Message to show when a product already exists in cart
-        server: 'Il y a eu un problème de connexion au serveur.<br> Veuillez réessayer plus tard !', // Message to show if there's no server connection
-        no_internet: 'Vérifiez votre connexion Internet!', // Message to show if there's no internet connection
-        empty: "Il n'y a aucun produit dans cette catégorie!", // Message to show if a categorie is empty
-        empty_cart: "Il n'y a aucun article dans votre panier!", // Message to show if the user cart is empty
-        empty_shop: "Le magasin est vide!", // Message to show if the website have no categories
-        error: 'Une erreur inattendue s\'est produite!' // Generic error message
-    },
-    views: { // Views title
-        homePage: 'Restaurant',
-        cart: 'Panier'
-    }
-};
+angular.module("woocommerce-api").constant("CONFIG", {
+
+    // The url of your domain, both HTTP and HTTPS are supported.
+    site_url: 'http://mobile-apps.today/products/ionic/woocommerce-api',
+    // site_url: 'http://localhost:8888/mobile/woocommerce-api/wordpress',
+
+    // Max period of time to wait for reply from the server, defined in milliseconds.
+    request_timeout: 6000,
+
+    // The url that follows your main domain, the API version is of interest here, v3 is the latest.
+    wc_api_endpoint: '/wc-api/v3',
+
+    // Signature method
+    oauth_signature_method: 'HMAC-SHA256',
+    // oauth_signature_method: 'HMAC-SHA1',
+
+    // Pair of credentials from your woocommerce installation, please refer to the documentation.
+    // Apps today
+    wc_consumer_key: 'ck_5f886e3d5c14cb0280167e5c96615e59a07b2124',
+    wc_consumer_secret: 'cs_4a5d2c133acc4203d45b410cf830f2755bf3257e',
+    // Localhost
+    // wc_consumer_key: 'ck_86a13f2c0ec34a4c99374e120dba436d31f069c3',
+    // wc_consumer_secret: 'cs_a0bc69e05eced4a8f464c08849c8f543946448d9',
+
+    // The number of products to be fetched with each API call.
+    products_per_page: 6,
+
+    // The number of reviews to be fetched with each API call.
+    reviews_per_page: 6,
+
+    // Frontpage Slideshow Category
+    slideshow_category: 'hoodies'
+
+});
