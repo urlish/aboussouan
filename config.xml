@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.restaurant.aboussouan" version="1.5.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>Aboussouan</name>
+  <name>Iphakissi</name>
   <description>
-    Application de prise de commande au restaurant Aboussouan à Ouagadougou (Burkina Faso).
+    Demo App.
   </description>
   <content src="index.html"/>
   <access origin="*"/>

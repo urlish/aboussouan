@@ -1,7 +1,7 @@
 angular.module("woocommerce-api").constant("CONFIG", {
 
     // The url of your domain, both HTTP and HTTPS are supported.
-    site_url: 'http://www.restaurantaboussouan.com',
+    site_url: 'http://wassanu.com/wassanu_demo/api/',
     // site_url: 'http://localhost:8888/mobile/woocommerce-api/wordpress',
 
     // Max period of time to wait for reply from the server, defined in milliseconds.
@@ -29,6 +29,6 @@ angular.module("woocommerce-api").constant("CONFIG", {
     reviews_per_page: 6,
 
     // Frontpage Slideshow Category
-    slideshow_category: 'nos-specialites-africaines'
+    //slideshow_category: 'nos-specialites-africaines'
 
 });
